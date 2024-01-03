@@ -1,0 +1,35 @@
+class SVGImages{
+  static const String home = 'assets/icons/home.svg';
+  static const String ourCourses = 'assets/icons/our_courses.svg';
+  static const String profile = 'assets/icons/profile.svg';
+  static const String courseImage = 'assets/icons/course_image.svg';
+  static const String rightArrow = 'assets/icons/right_arrow.svg';
+  static const String ourCoursesBlue = 'assets/icons/our_courses_blue.svg';
+  static const String backIcon = 'assets/icons/back_icon.svg';
+  static const String videoCam = 'assets/icons/video_cam.svg';
+  static const String down = 'assets/icons/down.svg';
+  static const String thumbsUp = 'assets/icons/thumb_up.svg';
+  static const String lightning = 'assets/icons/light.svg';
+  static const String done = 'assets/icons/done.svg';
+  static const String rightPlay = 'assets/icons/right_play.svg';
+  static const String forward = 'assets/icons/forward.svg';
+  static const String back = 'assets/icons/back.svg';
+  static const String downloadFile = 'assets/icons/download_file.svg';
+  static const String avatar = 'assets/icons/avatar.svg';
+  static const String comment = 'assets/icons/comment.svg';
+  static const String lock = 'assets/icons/lock.svg';
+  static const String edit = 'assets/icons/edit.svg';
+  static const String myProfile = 'assets/icons/my_profile.svg';
+  static const String rocket = 'assets/icons/rocket.svg';
+  static const String myCoursePlay = 'assets/icons/my_courses_play.svg';
+  static const String aboutUs = 'assets/icons/about_us.svg';
+  static const String faq = 'assets/icons/faq.svg';
+  static const String star = 'assets/icons/star.svg';
+  static const String caretRight = 'assets/icons/caret_right.svg';
+  static const String exit = 'assets/icons/exit.svg';
+  static const String key = 'assets/icons/key.svg';
+  static const String filter = 'assets/icons/filter.svg';
+  static const String wrappedIcon = 'assets/icons/wrapped_back.svg';
+  static const String addPerson = 'assets/icons/add_person.svg';
+  static const String edit2 = 'assets/icons/edit2.svg';
+}
