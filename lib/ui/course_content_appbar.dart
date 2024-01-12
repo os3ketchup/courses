@@ -1,3 +1,4 @@
+import 'package:courses/ui/course_content_item_sceen.dart';
 import 'package:courses/util_variables.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -14,18 +15,26 @@ class CourseContentAppbar extends StatefulWidget {
     required this.toolbarName,
     required this.toolbarIcon,
     required this.contentList,
+    required this.onTap,
   });
 
   final String toolbarName;
   final String toolbarIcon;
   final List<String> contentList;
-  String? selectedValue;
+  int selectedValue;
+   Function(dynamic value) onTap;
 
   @override
   State<CourseContentAppbar> createState() => _CourseContentAppbarState();
 }
 
 class _CourseContentAppbarState extends State<CourseContentAppbar> {
+  int selectedValue = 0;
+  @override
+  void initState() {
+    selectedValue = widget.selectedValue;
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     // Get the device's screen width
@@ -51,7 +60,7 @@ class _CourseContentAppbarState extends State<CourseContentAppbar> {
                     borderRadius: BorderRadius.all(
                       Radius.circular(12.o),
                     ),
-                    color: theme.bgCourse,
+                    color: const Color(0xffF4F7FD),
                   ),
                   margin: EdgeInsets.all(8.o),
                   padding: EdgeInsets.only(
@@ -85,10 +94,9 @@ class _CourseContentAppbarState extends State<CourseContentAppbar> {
                   child: Row(
                     children: [
                       Padding(
-                        padding:  EdgeInsets.only(bottom: 2.o),
+                        padding: EdgeInsets.only(bottom: 2.o),
                         child: SvgPicture.asset(SVGImages.rightPlay),
                       ),
-
                       Expanded(
                           child: Text(
                         enter.tr,
@@ -100,14 +108,14 @@ class _CourseContentAppbarState extends State<CourseContentAppbar> {
                     ],
                   ),
                 ),
-                items: widget.contentList
-                    .map((String item) => DropdownMenuItem<String>(
+                items: List.generate(widget.contentList.length, (index) => index)
+                    .map((int item) => DropdownMenuItem<int>(
                           value: item,
                           child: Row(
                             children: [
                               SvgPicture.asset(SVGImages.lock),
                               Expanded(
-                                  child: Text(item,
+                                  child: Text(widget.contentList[item],
                                       style: theme.textStyleSimple
                                           .copyWith(fontSize: 14.o),
                                       overflow: TextOverflow.ellipsis))
@@ -115,11 +123,11 @@ class _CourseContentAppbarState extends State<CourseContentAppbar> {
                           ),
                         ))
                     .toList(),
-                value: widget.selectedValue,
-                onChanged: (value) {
-                  setState(() {
-                    widget.selectedValue = value;
-                  });
+                value:selectedValue,
+                onChanged: (value){
+                  selectedValue = value ?? 0;
+                  widget.onTap(value);
+                  setState(() {});
                 },
                 buttonStyleData: ButtonStyleData(
                   width: screenWidth * 0.95,

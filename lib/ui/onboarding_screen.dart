@@ -27,7 +27,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               fit: BoxFit.cover,
             ),
             Container(
-              height: 161.o,
               margin: EdgeInsets.only(left: 13.o, right: 13.o, top: 32.o),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
@@ -36,7 +35,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   Padding(
                     padding:  EdgeInsets.only(bottom: 16.o),
                     child: Text(
-                     'asdasdas dasdasds',
+                     'Islombek Ibragimov',
                       textAlign: TextAlign.start,
                       style: GoogleFonts.pacifico(
                           color: theme.blue, fontSize: 16.o),
@@ -45,14 +44,14 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   Padding(
                     padding:  EdgeInsets.only(bottom: 16.o),
                     child: Text(
-                      'dasdas dsadadasdsadasdasdsadsadas dsa sddasdasdsadss',
+                      'Sotuvni Professionaldan o’rganing',
                       textAlign: TextAlign.start,
                       style: theme.styleMontserratBlack
-                          .copyWith(fontWeight: FontWeight.w600),
+                          .copyWith(fontWeight: FontWeight.w700,fontSize: 24.o),
                     ),
                   ),
                   Text(
-                    basic.tr,
+                    'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem ',
                     textAlign: TextAlign.justify,
                     style: theme.textStyleSimple
                         .copyWith(fontWeight: FontWeight.w400, fontSize: 16.o),

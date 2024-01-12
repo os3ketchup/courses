@@ -19,7 +19,7 @@ class _CourseAdvantageState extends State<CourseAdvantage> {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Container(
-          padding: EdgeInsets.all(8.o),
+          padding: EdgeInsets.only(left: 12.o,right: 12.o,top: 12.o),
           child: Row(
             children: [
               SvgPicture.asset(SVGImages.thumbsUp),
@@ -36,7 +36,7 @@ class _CourseAdvantageState extends State<CourseAdvantage> {
         ),
         for (final item in ["dasd", "dasdsa", "dasdasd", "das"])
           Container(
-            padding: EdgeInsets.all(8.o),
+            padding: EdgeInsets.symmetric(horizontal: 12.o,vertical: 6.o),
             child: Row(
               children: [
                 SvgPicture.asset(SVGImages.done),
@@ -51,19 +51,22 @@ class _CourseAdvantageState extends State<CourseAdvantage> {
               ],
             ),
           ),
-        Row(
-          children: [
-            SvgPicture.asset(SVGImages.lightning),
-            Text(
-              requirements.tr,
-              style: theme.styleMontserratBlack
-                  .copyWith(fontSize: 16.o, fontWeight: FontWeight.w600),
-            )
-          ],
+        Container(
+          padding: EdgeInsets.symmetric(horizontal: 12.o,vertical: 6.o),
+          child: Row(
+            children: [
+              SvgPicture.asset(SVGImages.lightning),
+              Text(
+                requirements.tr,
+                style: theme.styleMontserratBlack
+                    .copyWith(fontSize: 16.o, fontWeight: FontWeight.w600),
+              )
+            ],
+          ),
         ),
         for (final item in ["dasd", "dasdsa", "dasdasd", "das"])
           Container(
-            padding: EdgeInsets.all(8.o),
+            padding: EdgeInsets.symmetric(horizontal: 12.o,vertical: 6.o),
             child: Row(
               children: [
                 Container(

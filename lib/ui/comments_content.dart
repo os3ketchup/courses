@@ -13,16 +13,20 @@ class CommentsContent extends StatefulWidget {
 }
 
 class _CommentsContentState extends State<CommentsContent> {
+  List<String> list = ["dasda", "dasdasd", "dasdas"];
+
+
+
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-
-        [].isNotEmpty? _showItems():_showEmptyPlace(),
-        for (final item in [])
-         [].isNotEmpty? _showItems():_showEmptyPlace()
-      ],
-    );
+    setState(() {
+      list = list;
+    });
+    return Column(children: [
+      list.isEmpty ? _showEmptyPlace() : Container(),
+      for (final items in list)
+        _showItems(),
+    ]);
   }
 
   Widget _showItems() {
@@ -30,9 +34,12 @@ class _CommentsContentState extends State<CommentsContent> {
       padding: EdgeInsets.all(20.o),
       margin: EdgeInsets.all(8.o),
       decoration: BoxDecoration(
+          border: Border.all(width: 1.o, color: theme.btnBGColor),
           color: theme.white,
           borderRadius: BorderRadius.all(Radius.circular(10.o))),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.end,
+        mainAxisSize: MainAxisSize.min,
         children: [
           Row(
             children: [
@@ -60,21 +67,47 @@ class _CommentsContentState extends State<CommentsContent> {
           ),
           const Text(
               'Repellat perspiciatis cum! Doloremque ea viverra eu doloremque tellus aliqua gravida fuga dolorum augue, donec beatae. Class urna et doloremque facilisis autem risus fuga nullam quibusdam, tortor deleniti, accumsan dolorem? Posuere hac? Tellus maiores ullam ullamcorper, nostrud lacinia veniam torquent? Consequuntur a lobortis magnam mollis ac, explicabo nobis, pretium omnis, adipisci placerat, nostrum reiciendis? Illo natoque provident potenti ullamcorper quis hymenaeos lectus nobis nobis dui.'),
+          SizedBox(
+            width: 180.o,
+            child: TextButton(
+              onPressed: () {},
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 8.o),
+                    child: SvgPicture.asset(SVGImages.reply),
+                  ),
+                  Text(
+                    reply.tr,
+                    style: theme.styleMontserratBlack.copyWith(
+                        color: const Color(0xff098BED),
+                        fontSize: 16.o,
+                        fontWeight: FontWeight.w500),
+                  )
+                ],
+              ),
+            ),
+          ),
         ],
       ),
     );
   }
 
   Widget _showEmptyPlace() {
-    return  Center(
+    return Center(
       child: Column(
         children: [
-          SizedBox(height: 120.o,),
+          SizedBox(
+            height: 120.o,
+          ),
           SvgPicture.asset(SVGImages.comment),
-          Text(commentNotFound.tr,style: theme.textStyleSimple,)
+          Text(
+            commentNotFound.tr,
+            style: theme.textStyleSimple,
+          )
         ],
       ),
     );
   }
-
 }

@@ -43,7 +43,7 @@ class _HomePageState extends State<HomePage> {
       case 0:
         return const HomeScreen();
       case 1:
-        return const CourseScreen();
+        return  CourseScreen(index: selectedIndex,);
       case 2:
         return const ProfileScreen();
       default:

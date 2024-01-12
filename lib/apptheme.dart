@@ -44,10 +44,12 @@ class _ThemeApp {
   Color bgCourse = const Color(0xffF5F5F5);
   Color white = const Color(0xffFFFFFF);
   Color btnBGColor = const Color(0xffE5EBFB);
+  Color greyBetta = const Color(0x80000000);
 
 
   TextStyle styleMontserratBlack = GoogleFonts.montserrat(color: const Color(0xff000000));
   TextStyle textStyleSimple = GoogleFonts.montserrat(color: const Color(0xff1D2230));
+  TextStyle rubikStyle = GoogleFonts.rubik(color: const Color(0xff000000),fontWeight: FontWeight.w500,fontSize: 16.o);
 
 
   String fontFamily = "IBMPlexSans";

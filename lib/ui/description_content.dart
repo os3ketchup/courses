@@ -13,10 +13,18 @@ class DescriptionContent extends StatefulWidget {
 }
 
 class _DescriptionContentState extends State<DescriptionContent> {
-
-
   @override
   Widget build(BuildContext context) {
+    return Stack(
+      children: [
+        _buildDescriptionContainer(),
+
+      ],
+    );
+  }
+
+
+  Widget _buildDescriptionContainer() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
@@ -42,7 +50,10 @@ class _DescriptionContentState extends State<DescriptionContent> {
           child: Row(
             children: [
               const Expanded(child: CustomDropDownWidget()),
-              SvgPicture.asset(SVGImages.downloadFile,color: theme.blue,)
+              SvgPicture.asset(
+                SVGImages.downloadFile,
+                color: theme.blue,
+              )
             ],
           ),
         ),
@@ -51,7 +62,7 @@ class _DescriptionContentState extends State<DescriptionContent> {
           color: Colors.lightBlue,
         ),
         Padding(
-          padding: EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(8.0),
           child: Text(
             'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
             style: theme.textStyleSimple

@@ -14,8 +14,7 @@ class FrequentlyAskedQuestion extends StatefulWidget {
 }
 
 class _FrequentlyAskedQuestionState extends State<FrequentlyAskedQuestion> {
-  List<bool> _isExpandedList = List.generate(4, (_) => false); // List
-  bool _isExpanded = false;
+  final List<bool> _isExpandedList = List.generate(4, (_) => false); // List
 
   @override
   Widget build(BuildContext context) {

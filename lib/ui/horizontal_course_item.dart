@@ -1,4 +1,5 @@
 import 'package:courses/apptheme.dart';
+import 'package:courses/ui/course_screen.dart';
 import 'package:courses/util_variables.dart';
 import 'package:courses/variables/icons.dart';
 import 'package:courses/variables/images.dart';
@@ -13,6 +14,7 @@ class HorizontalCourseItems extends StatefulWidget {
 }
 
 class _HorizontalCourseItemsState extends State<HorizontalCourseItems> {
+   // Initial color
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
@@ -27,6 +29,7 @@ class _HorizontalCourseItemsState extends State<HorizontalCourseItems> {
             ),
           ),
           width: 336.o,
+          height: 125.o,
           margin: EdgeInsets.all(8.o),
           child: Stack(
             children: [
@@ -34,45 +37,63 @@ class _HorizontalCourseItemsState extends State<HorizontalCourseItems> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Expanded(child: Container()),
-                  Image.asset(
-                    PNGImages.coursePngImage,
-                    fit: BoxFit.cover,
+                  ClipRRect(
+                    borderRadius:
+                        BorderRadius.only(bottomRight: Radius.circular(10.o)),
+                    child: Image.asset(
+                      PNGImages.coursePngImage,
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ],
               ),
-              Container(
-                margin: EdgeInsets.all(12.o),
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    SizedBox(
-                        width: 336.o,
-                        child: Text(
-                          'Sotuvni o\'rganing',
-                          textAlign: TextAlign.start,
-                          style: theme.styleMontserratBlack.copyWith(
-                              fontWeight: FontWeight.w600, fontSize: 16.o),
-                        )),
-                    SizedBox(
-                      width: 336.o,
+              Column(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding:  EdgeInsets.only(left: 12.o,top: 6.o),
+                    child: Text(
+                      'Sotuvni o\'rganing',
+                      textAlign: TextAlign.start,
+                      style: theme.styleMontserratBlack.copyWith(
+                          fontWeight: FontWeight.w600, fontSize: 16.o),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 223.o,
+                    child: Padding(
+                      padding:  EdgeInsets.only(left: 12.o,top: 6.o),
                       child: Text(
-                        'dsa q dqw dqw qwdqwdqwd qqwdqwdwdqwqwdqwqdqwd',
+                        'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem',
                         textAlign: TextAlign.left,
                         style: theme.textStyleSimple.copyWith(
                             fontSize: 11.o, fontWeight: FontWeight.w500),
                       ),
                     ),
-                    SizedBox(
-                        width: 336.o,
-                        child:  Row(
-                          children: [
-                            Text('Bizning kurslar',style: theme.textStyleSimple.copyWith(color: theme.blue,fontWeight: FontWeight.w500),),
-                            SvgPicture.asset(SVGImages.rightArrow),
-                          ],
-                        ))
-                  ],
-                ),
+                  ),
+                  TextButton(
+                    onPressed: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context) {
+                       return const CourseScreen(index: 0,);
+                      },));
+                    },
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Bizning kurslar',
+                          style: theme.textStyleSimple.copyWith(
+                              color: theme.blue,
+                              fontWeight: FontWeight.w500),
+                        ),
+                        SvgPicture.asset(SVGImages.rightArrow),
+                      ],
+                    ),
+                  )
+                ],
               ),
               // Expanded(child: Container()),
             ],

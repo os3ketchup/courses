@@ -32,4 +32,11 @@ class SVGImages{
   static const String wrappedIcon = 'assets/icons/wrapped_back.svg';
   static const String addPerson = 'assets/icons/add_person.svg';
   static const String edit2 = 'assets/icons/edit2.svg';
+  static const String reply = 'assets/icons/reply.svg';
+  static const String list = 'assets/icons/list.svg';
+  static const String timer = 'assets/icons/timer.svg';
+  static const String fail = 'assets/icons/fail.svg';
+  static const String success = 'assets/icons/success.svg';
+  static const String doubleDone = 'assets/icons/done_double.svg';
+  static const String close = 'assets/icons/close.svg';
 }

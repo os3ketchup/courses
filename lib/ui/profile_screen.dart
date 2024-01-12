@@ -10,6 +10,7 @@ import 'package:courses/variables/icons.dart';
 import 'package:courses/variables/images.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:simple_circular_progress_bar/simple_circular_progress_bar.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -63,9 +64,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       SizedBox(
                         child: IconButton(
                             onPressed: () {
-                              Navigator.push(context, MaterialPageRoute(builder: (context) {
-                                return   const EditProfileScreen();
-                              },));
+                              Navigator.push(context, MaterialPageRoute(
+                                builder: (context) {
+                                  return const EditProfileScreen();
+                                },
+                              ));
                             },
                             icon: SvgPicture.asset(SVGImages.edit)),
                       )
@@ -75,6 +78,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     height: 20.o,
                   ),
                   Container(
+                    padding:
+                        EdgeInsets.only(left: 16.o, top: 10.o, bottom: 10.o),
                     height: 83.o,
                     width: 351.o,
                     decoration: BoxDecoration(
@@ -82,8 +87,26 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         color: theme.bgCourse),
                     child: Row(
                       children: [
-                        Container(
-                            height: 62.o, width: 62.o, color: Colors.blue),
+                        SizedBox(
+                          height: 58.o,
+                          width: 58.o,
+                          child: SimpleCircularProgressBar(
+                            progressColors: const [
+                              Color(0xff375BB9),
+                              Color(0xff4FF9F9),
+                            ],
+                            onGetText: (p0) {
+                              return Text(
+                                '${p0.toInt()}%',
+                                style: theme.styleMontserratBlack.copyWith(
+                                    fontWeight: FontWeight.w700,
+                                    fontSize: 14.o),
+                              );
+                            },
+                            progressStrokeWidth: 8,
+                            backStrokeWidth: 0,
+                          ),
+                        ),
                         Expanded(
                             child: Container(
                           margin: EdgeInsets.symmetric(horizontal: 16.o),

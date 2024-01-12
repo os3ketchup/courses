@@ -1,8 +1,7 @@
 import 'dart:io';
 
 import 'package:courses/language.dart';
-import 'package:courses/ui/home_page.dart';
-import 'package:courses/ui/onboarding_screen.dart';
+import 'package:courses/ui/splash_screen.dart';
 import 'package:courses/util_variables.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -93,7 +92,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
             child: child!,
           );
         },
-        home: const OnboardingScreen(),
+        home: const SplashScreen(),
       ),
     );
   }
