@@ -1,6 +1,6 @@
 import 'package:courses/apptheme.dart';
 import 'package:courses/language.dart';
-import 'package:courses/ui/home_page.dart';
+import 'package:courses/ui/basic/home_page.dart';
 import 'package:courses/util_variables.dart';
 import 'package:courses/variables/images.dart';
 import 'package:flutter/material.dart';

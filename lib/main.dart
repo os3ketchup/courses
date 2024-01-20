@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_translate/flutter_translate.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:dio/dio.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,7 +26,12 @@ void main() async {
     ],
   ).then(
     (_) => runApp(
-      LocalizedApp(delegate, const MyApp()),
+      LocalizedApp(
+        delegate,
+        const ProviderScope(
+          child: ProviderScope(child: MyApp()),
+        ),
+      ),
     ),
   );
 }
@@ -65,11 +72,6 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
     return LocalizationProvider(
       state: LocalizationProvider.of(context).state,
       child: MaterialApp(
-        // initialRoute: '/onboarding',
-        // routes: {
-        //   // '/splash': (context) => const SplashScreen(),
-        //   '/onboarding': (context) => const OnboardingScreen(),
-        // },
         debugShowCheckedModeBanner: false,
         localizationsDelegates: [
           GlobalMaterialLocalizations.delegate,
