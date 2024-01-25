@@ -17,17 +17,12 @@ class ChangePasswordScreen extends StatefulWidget {
 
 class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
   var obscureOldPassword = true;
-  var obscureNewPassword = true;
   var obscureRepeatPassword = true;
+  var obscureNewPassword = true;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-          preferredSize: Size.fromHeight(94.o),
-          child: MyCourseAppbar(
-            titleAppbar: editInfo.tr,
-          )),
       body: Container(
         color: theme.bgCourse,
         child: Container(
@@ -122,6 +117,11 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
           ),
         ),
       ),
+      appBar: PreferredSize(
+          preferredSize: Size.fromHeight(94.o),
+          child: MyCourseAppbar(
+            titleAppbar: editInfo.tr,
+          )),
     );
   }
 

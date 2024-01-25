@@ -214,7 +214,7 @@ packages:
     source: hosted
     version: "3.0.0"
   mask_text_input_formatter:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: mask_text_input_formatter
       sha256: "4b40b7cbf1859a5e16a6c441faa00f36842068eca185985b2b30e61432058ef4"
