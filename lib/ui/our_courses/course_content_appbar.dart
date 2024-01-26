@@ -65,10 +65,15 @@ class _CourseContentAppbarState extends State<CourseContentAppbar> {
                   margin: EdgeInsets.all(8.o),
                   padding: EdgeInsets.only(
                       right: 15.o, left: 15.o, top: 13, bottom: 13.o),
-                  child: SizedBox(
-                      height: 10.o,
-                      width: 6.o,
-                      child: SvgPicture.asset(widget.toolbarIcon)),
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: SizedBox(
+                        height: 10.o,
+                        width: 6.o,
+                        child: SvgPicture.asset(widget.toolbarIcon)),
+                  ),
                 ),
                 Expanded(
                   child: Padding(

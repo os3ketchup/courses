@@ -45,6 +45,9 @@ class _ThemeApp {
   Color white = const Color(0xffFFFFFF);
   Color btnBGColor = const Color(0xffE5EBFB);
   Color greyBetta = const Color(0x80000000);
+  Color gray1 = const Color(0xffADB6CD);
+  Color gray2 = const Color(0xff7784A4);
+  Color filledColor = const Color(0xffF4F7FD);
 
 
   TextStyle styleMontserratBlack = GoogleFonts.montserrat(color: const Color(0xff000000));
@@ -62,7 +65,11 @@ class _ThemeApp {
   );
 
 
-
+  MaskTextInputFormatter phoneFormatter = MaskTextInputFormatter(
+    mask: '+998 (##)-###-##-##',
+    filter: {"#": RegExp(r'\d')},
+    type: MaskAutoCompletionType.eager,
+  );
 
   MaskTextInputFormatter numberMaskFormatter = MaskTextInputFormatter(
     mask: '#### #### #### ####',

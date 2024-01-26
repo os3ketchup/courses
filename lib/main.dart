@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:courses/apptheme.dart';
 import 'package:courses/language.dart';
 import 'package:courses/ui/splash_screen.dart';
 import 'package:courses/util_variables.dart';
@@ -82,7 +83,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
         supportedLocales: localizationDelegate.supportedLocales,
         locale: localizationDelegate.currentLocale,
         theme: ThemeData(
-          platform: TargetPlatform.iOS,
+          platform: TargetPlatform.iOS,bottomSheetTheme: BottomSheetThemeData(backgroundColor: theme.white,modalBackgroundColor: theme.white)
         ),
         builder: (BuildContext context, Widget? child) {
           height = MediaQuery.of(context).size.height / 600;

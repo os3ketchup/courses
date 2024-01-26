@@ -25,7 +25,7 @@ class _GridCourseItemsState extends State<GridCourseItems> {
           itemCount: 4,
           gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
               mainAxisExtent: 208.o,
-              maxCrossAxisExtent: 170.o,
+              maxCrossAxisExtent: 200.o,
               crossAxisSpacing: 12.o,
               mainAxisSpacing: 12.o),
           itemBuilder: (context, index) {

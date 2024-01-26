@@ -36,7 +36,6 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
-
                     height: 44.o,
                     padding: EdgeInsets.only(bottom: 10.o, top: 10.o),
                     child: Text(
@@ -46,7 +45,23 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                     ),
                   ),
                   TextField(
+                    style: theme.styleMontserratBlack
+                        .copyWith(fontSize: 14, fontWeight: FontWeight.w400),
+                    cursorColor: theme.blue,
                     decoration: InputDecoration(
+                        contentPadding: EdgeInsets.only(top: 4.o, left: 12.o),
+                        enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: theme.btnBGColor),
+                            borderRadius:
+                            BorderRadius.all(Radius.circular(12.o))),
+                        focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: theme.blue),
+                            borderRadius:
+                            BorderRadius.all(Radius.circular(12.o))),
+                        hintStyle: theme.styleMontserratBlack.copyWith(
+                            fontSize: 14.o,
+                            fontWeight: FontWeight.w400,
+                            color: theme.gray1),
                         filled: true,
                         fillColor: theme.white,
                         border: OutlineInputBorder(
@@ -63,13 +78,15 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                           color: const Color(0xffE5EBFB)),
                       child: TextButton(
                         onPressed: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context) {
-                            return ChangePasswordScreen(() {
-                              setState(() {
-                                isPasswordChanged = true;
+                          Navigator.push(context, MaterialPageRoute(
+                            builder: (context) {
+                              return ChangePasswordScreen(() {
+                                setState(() {
+                                  isPasswordChanged = true;
+                                });
                               });
-                            });
-                          },));
+                            },
+                          ));
                         },
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -90,13 +107,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                       ),
                     ),
                   ),
-                  isPasswordChanged
-                      ? _showChangedText()
-                      : Container(
-                          width: 150.o,
-                          height: 10.o,
-                          color: theme.blue,
-                        ),
+                  isPasswordChanged ? _showChangedText() : Container(),
                   SizedBox(
                     height: 450.o,
                   ),

@@ -2,6 +2,7 @@ import 'package:courses/apptheme.dart';
 import 'package:courses/ui/our_courses/comments_content.dart';
 import 'package:courses/ui/our_courses/course_content_appbar.dart';
 import 'package:courses/ui/our_courses/description_content.dart';
+import 'package:courses/ui/our_courses/entering_sys_bottom_sheet.dart';
 import 'package:courses/ui/register/entering_phone_screen.dart';
 import 'package:courses/ui/register/register_screen.dart';
 import 'package:courses/ui/register/sign_up_screen.dart';
@@ -37,12 +38,18 @@ class _CourseContentItemScreenState extends State<CourseContentItemScreen> {
 
   @override
   Widget build(BuildContext context) {
-    double bottom = MediaQuery.of(context).viewInsets.bottom - 80.o;
+    double bottom = MediaQuery
+        .of(context)
+        .viewInsets
+        .bottom - 80.o;
     if (bottom < 0) {
       bottom = 0;
     }
 
-    bottom = MediaQuery.of(context).viewInsets.bottom;
+    bottom = MediaQuery
+        .of(context)
+        .viewInsets
+        .bottom;
     return Scaffold(
       backgroundColor: theme.bgCourse,
       appBar: PreferredSize(
@@ -62,20 +69,20 @@ class _CourseContentItemScreenState extends State<CourseContentItemScreen> {
       ),
       body: items[selectedValue!] != 'Item3'
           ? Container(
-              margin: EdgeInsets.all(12.o),
-              child: SingleChildScrollView(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    _getCourseContainer(),
-                    _buildChoosingButton(),
-                    isClicked[0]
-                        ? const DescriptionContent()
-                        : const CommentsContent(),
-                  ],
-                ),
-              ),
-            )
+        margin: EdgeInsets.all(12.o),
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              _getCourseContainer(),
+              _buildChoosingButton(),
+              isClicked[0]
+                  ? const DescriptionContent()
+                  : const CommentsContent(),
+            ],
+          ),
+        ),
+      )
           : const TestScreen(),
       floatingActionButton: PreferredSize(
           preferredSize: const Size.fromHeight(kToolbarHeight),
@@ -156,43 +163,6 @@ class _CourseContentItemScreenState extends State<CourseContentItemScreen> {
     );
   }
 
-  Widget _buildPasswordContainer(
-      String label, bool obs, ValueChanged<bool> onChanged) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          label,
-          style: theme.textStyleSimple
-              .copyWith(fontSize: 14.o, fontWeight: FontWeight.w400),
-          textAlign: TextAlign.start,
-        ),
-        Padding(
-          padding: EdgeInsets.symmetric(vertical: 8.o),
-          child: TextField(
-            obscureText: obs,
-            decoration: InputDecoration(
-                enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(10.o)),
-                    borderSide: const BorderSide(color: Color(0xff4F7FD))),
-                suffixIcon: IconButton(
-                    onPressed: () {
-                      onChanged(!obs);
-                    },
-                    icon: Icon(obs
-                        ? Icons.visibility_outlined
-                        : Icons.visibility_off_outlined)),
-                filled: true,
-                fillColor: theme.btnBGColor,
-                border: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(14.o)),
-                    borderSide: BorderSide(color: theme.btnBGColor)),
-                hintText: 'Password'),
-          ),
-        ),
-      ],
-    );
-  }
 
   void showBottomDialog(Widget dialog, BuildContext context) =>
       showModalBottomSheet<void>(
@@ -218,137 +188,10 @@ class _CourseContentItemScreenState extends State<CourseContentItemScreen> {
           padding: EdgeInsets.symmetric(vertical: 12.o),
           child: GestureDetector(
             onTap: () {
-              showBottomDialog(
-                  SingleChildScrollView(
-                    child: Padding(
-                      padding: EdgeInsets.only(
-                          right: 12.o,
-                          bottom: 20.o + bottom,
-                          left: 12.o,
-                          top: 12.o),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          Container(
-                            width: 54.o,
-                            height: 5.o,
-                            decoration: BoxDecoration(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(14.o)),
-                                color: theme.btnBGColor),
-                            margin: EdgeInsets.symmetric(horizontal: 150.o),
-                          ),
-                          Container(
-                              padding: EdgeInsets.only(top: 40.o),
-                              height: 90.o,
-                              width: 50.o,
-                              child: Image.asset(PNGImages.sharkLogo)),
-                          if (bottom == 0)
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.stretch,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsets.symmetric(vertical: 14.o),
-                                  child: Text(
-                                    enteringSystem.tr,
-                                    textAlign: TextAlign.center,
-                                    style: theme.styleMontserratBlack.copyWith(
-                                        fontSize: 16.o,
-                                        fontWeight: FontWeight.w600),
-                                  ),
-                                ),
-                                Text(
-                                  phoneNumber.tr,
-                                  style: theme.textStyleSimple.copyWith(
-                                      fontSize: 14.o,
-                                      fontWeight: FontWeight.w400),
-                                  textAlign: TextAlign.start,
-                                ),
-                                Container(
-                                  margin: EdgeInsets.symmetric(vertical: 12.o),
-                                  child: TextField(
-                                    decoration: InputDecoration(
-                                        enabledBorder: OutlineInputBorder(
-                                            borderRadius: BorderRadius.all(
-                                                Radius.circular(10.o)),
-                                            borderSide: const BorderSide(
-                                                color: Color(0xff4F7FD))),
-                                        filled: true,
-                                        fillColor: theme.btnBGColor,
-                                        border: OutlineInputBorder(
-                                            borderRadius: BorderRadius.all(
-                                                Radius.circular(14.o)),
-                                            borderSide: BorderSide(
-                                                color: theme.btnBGColor)),
-                                        hintText: '+998'),
-                                  ),
-                                ),
-                                _buildPasswordContainer(
-                                    password.tr, obscureRepeatPassword,
-                                    (value) {
-                                  setState(() {
-                                    obscureRepeatPassword = value;
-                                  });
-                                }),
-                                Padding(
-                                  padding: EdgeInsets.symmetric(vertical: 8.o),
-                                  child: ElevatedButton(
-                                      style: ElevatedButton.styleFrom(
-                                          shape: RoundedRectangleBorder(
-                                              borderRadius: BorderRadius.all(
-                                                  Radius.circular(10.o))),
-                                          backgroundColor: theme.blue),
-                                      onPressed: () {
-                                        Navigator.push(context,
-                                            MaterialPageRoute(
-                                          builder: (context) {
-                                            return  RegisterScreen();
-                                          },
-                                        ));
-                                      },
-                                      child: Text(
-                                        enteringSystem.tr,
-                                        style: theme.styleMontserratBlack
-                                            .copyWith(
-                                                color: theme.white,
-                                                fontWeight: FontWeight.w600,
-                                                fontSize: 17.o),
-                                      )),
-                                ),
-                                TextButton(
-                                  onPressed: () {
-                                    Navigator.push(context, MaterialPageRoute(
-                                      builder: (context) {
-                                        return const EnteringPhoneScreen();
-                                      },
-                                    ));
-                                  },
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      SvgPicture.asset(SVGImages.addPerson),
-                                      Padding(
-                                        padding: EdgeInsets.only(left: 14.o),
-                                        child: Text(
-                                          register.tr,
-                                          style: theme.styleMontserratBlack
-                                              .copyWith(
-                                                  color: theme.blue,
-                                                  fontWeight: FontWeight.w600,
-                                                  fontSize: 16.o),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            )
-                        ],
-                      ),
-                    ),
-                  ),
-                  context);
+              showModalBottomSheet(isScrollControlled: true,context: context, builder: (context)
+              {
+                return const EnteringSystemBottomSheet();
+              },);
             },
             child: Image.asset(
               PNGImages.playLessonRoom,
@@ -387,7 +230,7 @@ class _CourseContentItemScreenState extends State<CourseContentItemScreen> {
                 width: 42.o,
                 height: 42.o,
                 decoration:
-                    BoxDecoration(color: theme.blue, shape: BoxShape.circle),
+                BoxDecoration(color: theme.blue, shape: BoxShape.circle),
                 child: Icon(
                   Icons.send,
                   color: theme.white,

@@ -74,6 +74,7 @@ class _HorizontalCourseItemsState extends State<HorizontalCourseItems> {
                     ),
                   ),
                   TextButton(
+                    style: TextButton.styleFrom(foregroundColor: theme.blue),
                     onPressed: (){
                       Navigator.push(context, MaterialPageRoute(builder: (context) {
                        return const CourseScreen(index: 0,);

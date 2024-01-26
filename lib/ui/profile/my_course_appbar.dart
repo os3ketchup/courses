@@ -23,16 +23,20 @@ class MyCourseAppbar extends StatelessWidget {
         margin: EdgeInsets.only(bottom: 10.o),
         child: Row(
           children: [
-            Container(
-                margin: EdgeInsets.all(8.o),
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(8.o)),
-                    color: theme.bgCourse),
-                child: Padding(
-                  padding: EdgeInsets.only(
-                      right: 10.o, left: 10.o, top: 8.o, bottom: 8.o),
-                  child: SizedBox(child: SvgPicture.asset(SVGImages.backIcon)),
-                )),
+            GestureDetector(onTap: () {
+              Navigator.pop(context);
+            },
+              child: Container(
+                  margin: EdgeInsets.all(8.o),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(8.o)),
+                      color: theme.bgCourse),
+                  child: Padding(
+                    padding: EdgeInsets.only(
+                        right: 10.o, left: 10.o, top: 8.o, bottom: 8.o),
+                    child: SizedBox(child: SvgPicture.asset(SVGImages.backIcon)),
+                  )),
+            ),
             Expanded(
                 child: Container(
               margin: EdgeInsets.only(right: 18.o),

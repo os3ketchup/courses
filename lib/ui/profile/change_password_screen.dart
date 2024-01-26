@@ -6,10 +6,9 @@ import '../../apptheme.dart';
 import 'my_course_appbar.dart';
 
 class ChangePasswordScreen extends StatefulWidget {
-   const ChangePasswordScreen(this.passwordChangedCallback, {super.key});
+  const ChangePasswordScreen(this.passwordChangedCallback, {super.key});
 
   final VoidCallback passwordChangedCallback;
-
 
   @override
   State<ChangePasswordScreen> createState() => _ChangePasswordScreenState();
@@ -38,14 +37,33 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                       .copyWith(fontSize: 14.o, fontWeight: FontWeight.w400),
                 ),
               ),
-              TextField(
-                decoration: InputDecoration(
-                    filled: true,
-                    fillColor: theme.white,
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(14.o)),
-                        borderSide: BorderSide(color: theme.btnBGColor)),
-                    hintText: 'Eshonov Fakhriyor'),
+              Container(
+                height: 44.o,
+                child: TextField(
+                  style: theme.styleMontserratBlack
+                      .copyWith(fontSize: 14, fontWeight: FontWeight.w400),
+                  cursorColor: theme.blue,
+                  decoration: InputDecoration(
+                      contentPadding: EdgeInsets.only(top: 4.o, left: 12.o),
+                      enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: theme.btnBGColor),
+                          borderRadius:
+                              BorderRadius.all(Radius.circular(12.o))),
+                      focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: theme.blue),
+                          borderRadius:
+                              BorderRadius.all(Radius.circular(12.o))),
+                      hintStyle: theme.styleMontserratBlack.copyWith(
+                          fontSize: 14.o,
+                          fontWeight: FontWeight.w400,
+                          color: theme.gray1),
+                      filled: true,
+                      fillColor: theme.white,
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(14.o)),
+                          borderSide: BorderSide(color: theme.btnBGColor)),
+                      hintText: 'Eshonov Fakhriyor'),
+                ),
               ),
               _buildPasswordContainer(oldPassword.tr, obscureOldPassword,
                   (value) {
@@ -140,22 +158,42 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
             textAlign: TextAlign.start,
           ),
         ),
-        TextField(
-          obscureText: obs,
-          decoration: InputDecoration(
-              suffixIcon: IconButton(
-                  onPressed: () {
-                    onChanged(!obs);
-                  },
-                  icon: Icon(obs
-                      ? Icons.visibility_outlined
-                      : Icons.visibility_off_outlined)),
-              filled: true,
-              fillColor: theme.white,
-              border: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(14.o)),
-                  borderSide: BorderSide(color: theme.btnBGColor)),
-              hintText: 'Password'),
+        SizedBox(
+          height: 44.o,
+          child: TextField(
+            style: theme.styleMontserratBlack
+                .copyWith(fontSize: 14, fontWeight: FontWeight.w400),
+            cursorColor: theme.blue,
+            obscureText: obs,
+            decoration: InputDecoration(
+                contentPadding: EdgeInsets.only(top: 4.o, left: 12.o),
+                enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: theme.btnBGColor),
+                    borderRadius: BorderRadius.all(Radius.circular(12.o))),
+                focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: theme.blue),
+                    borderRadius: BorderRadius.all(Radius.circular(12.o))),
+                hintStyle: theme.styleMontserratBlack.copyWith(
+                    fontSize: 14.o,
+                    fontWeight: FontWeight.w400,
+                    color: theme.gray1),
+                suffixIcon: IconButton(
+                    onPressed: () {
+                      onChanged(!obs);
+                    },
+                    icon: Icon(
+                      obs
+                          ? Icons.visibility_outlined
+                          : Icons.visibility_off_outlined,
+                      color: theme.gray2,
+                    )),
+                filled: true,
+                fillColor: theme.white,
+                border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(14.o)),
+                    borderSide: BorderSide(color: theme.btnBGColor)),
+                hintText: 'Password'),
+          ),
         ),
       ],
     );

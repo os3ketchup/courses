@@ -36,7 +36,9 @@ class _AppBarContainerState extends State<AppBarContainer> {
           children: [
             Container(
               padding: const EdgeInsets.all(16.0),
-              child: SvgPicture.asset(widget.toolbarIcon),
+              child: GestureDetector(onTap: () {
+                Navigator.pop(context);
+              },child: SvgPicture.asset(widget.toolbarIcon)),
             ),
             Expanded(
               child: Padding(
