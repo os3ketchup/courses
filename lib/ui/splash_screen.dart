@@ -13,26 +13,44 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  bool _visible = true;
   @override
   void initState() {
     super.initState();
+
+    Future.delayed(
+      const Duration(milliseconds: 1000),
+      () {
+          setState(() {
+            _visible = false;
+          });
+      },
+    );
     // Wait for 2 seconds then navigate to onboarding screen
     Future.delayed(const Duration(seconds: 2), () {
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
-        return const OnboardingScreen();
-      },));
+      Navigator.pushReplacement(context, MaterialPageRoute(
+        builder: (context) {
+          return const OnboardingScreen();
+        },
+      ));
     });
   }
+
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
         color: Colors.white,
-        child: Center(
-            child: Image.asset(
-              PNGImages.sharkLogoLow,
-            )),
+        child: AnimatedOpacity(
+          opacity: _visible ? 0.0 : 1.0,
+          duration: const Duration(milliseconds: 1500),
+          child: Center(
+              child: Image.asset(
+            PNGImages.sharkLogoLow,
+          )),
+        ),
       ),
     );
   }
